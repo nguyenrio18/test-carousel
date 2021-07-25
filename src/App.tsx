@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Carousel from './components/Carousel';
+import './styles/output.css'
+
+const COLORS = [
+  { color: "grey" },
+  { color: "red" },
+  { color: "blue" },
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container p-3">
+        <Carousel time={5000}>
+          {
+            COLORS.map((image, index) =>
+              <div key={index} style={{
+                width: 600,
+                height: 300,
+                backgroundColor: image.color,
+              }}></div>)
+          }
+        </Carousel>
+      </div>
     </div>
   );
 }
